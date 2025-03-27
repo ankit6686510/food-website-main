@@ -9,6 +9,68 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* Dark Mode Styles */
+:root {
+  --primary-text: #333333;
+  --secondary-text: #666666;
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8f8f8;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --border-color: #e8e8e8;
+  --button-bg: #f0f0f0;
+  --button-hover-bg: #e8e8e8;
+  --accent-color: #e23744;
+  --accent-hover: #d32f2f;
+  --header-bg: #ffffff;
+  --footer-bg: #ffffff;
+  --footer-text: #3e4152;
+  --footer-secondary-text: #7e808c;
+  --footer-border: #e9e9eb;
+  --shimmer-base: #f6f7f8;
+  --shimmer-highlight: #edeef1;
+  --shimmer-end: #f6f7f8;
+  --card-border: #f0f0f0;
+  --input-bg: #ffffff;
+  --transition-speed: 0.3s;
+  --icon-color: #555555;
+  --card-bg-rgb: 255, 255, 255;
+}
+
+.dark-theme {
+  --primary-text: #f5f5f5;
+  --secondary-text: #bbbbbb;
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --card-bg: #242424;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --border-color: #333333;
+  --button-bg: #2a2a2a;
+  --button-hover-bg: #3a3a3a;
+  --header-bg: #1a1a1a;
+  --footer-bg: #1a1a1a;
+  --footer-text: #e0e0e0;
+  --footer-secondary-text: #b0b0b0;
+  --footer-border: #333333;
+  --shimmer-base: #2a2a2a;
+  --shimmer-highlight: #3a3a3a;
+  --shimmer-end: #2a2a2a;
+  --card-border: #333333;
+  --input-bg: #2a2a2a;
+  --icon-color: #dddddd;
+  --card-bg-rgb: 36, 36, 36;
+}
+
+/* Global Styles with Variables */
+body {
+  font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+  margin: 0;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  scroll-behavior: smooth;
+}
+
 /* HEADER */
 .header {
   display: flex;
@@ -20,8 +82,8 @@ html, body {
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: #fff;
-  transition: all 0.3s ease;
+  background-color: var(--header-bg);
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .header-scrolled {
@@ -61,7 +123,7 @@ html, body {
 .logo-text {
   font-size: 22px;
   font-weight: 700;
-  color: #e23744;
+  color: var(--accent-color);
   display: none;
 }
 
@@ -82,7 +144,7 @@ html, body {
   background: none;
   border: none;
   font-size: 14px;
-  color: #333;
+  color: var(--secondary-text);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -92,17 +154,17 @@ html, body {
 }
 
 .location-btn:hover {
-  color: #e23744;
+  color: var(--accent-color);
 }
 
 .location-icon {
-  color: #e23744;
+  color: var(--accent-color);
 }
 
 .city-display {
   font-size: 12px;
   font-weight: 600;
-  color: #666;
+  color: var(--secondary-text);
   margin-top: -2px;
 }
 
@@ -123,7 +185,7 @@ html, body {
 }
 
 .menu-toggle:hover {
-  color: #e23744;
+  color: var(--accent-color);
   background-color: rgba(226, 55, 68, 0.05);
 }
 
@@ -148,7 +210,7 @@ html, body {
   left: 0;
   right: 0;
   height: 3px;
-  background-color: #e23744;
+  background-color: var(--accent-color);
   border-radius: 3px;
 }
 
@@ -157,15 +219,15 @@ html, body {
   align-items: center;
   padding: 8px 12px;
   text-decoration: none;
-  color: #333;
+  color: var(--primary-text);
   font-weight: 500;
   transition: color 0.2s ease;
   border-radius: 6px;
 }
 
 .nav-link:hover, .login-btn:hover {
-  color: #e23744;
-  background-color: rgba(226, 55, 68, 0.05);
+  color: var(--accent-color);
+  background-color: rgba(226, 55, 68, 0.1);
 }
 
 .nav-icon {
@@ -184,7 +246,7 @@ html, body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #e23744;
+  background-color: var(--accent-color);
   color: white;
   font-size: 10px;
   font-weight: bold;
@@ -222,7 +284,7 @@ html, body {
   border: none;
   font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: var(--primary-text);
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 6px;
@@ -244,7 +306,7 @@ html, body {
     top: 60px;
     right: 15px;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--card-bg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
@@ -269,7 +331,7 @@ html, body {
   }
   
   .nav-list li.active .nav-link {
-    color: #e23744;
+    color: var(--accent-color);
     background-color: rgba(226, 55, 68, 0.1);
   }
   
@@ -305,13 +367,15 @@ html, body {
 }
 
 .logo-container div button{
-  background-color: #fff;
+  background-color: transparent;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--border-color);
   outline: none;
   font-size: 15px;
   font-weight: 700;
   padding-bottom: 3px;
+  color: var(--primary-text);
+  transition: color var(--transition-speed), border-color var(--transition-speed);
 }
 
 .logo-container div p {
@@ -458,9 +522,9 @@ li > span > i {
 }
 
 .filter-btn {
-    color: #111;
-    background-color: #fff;
-    border: 1px solid #e2e2e7;
+    color: var(--primary-text);
+    background-color: var(--button-bg);
+    border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 8px 12px;
     font-weight: 400;
@@ -468,7 +532,7 @@ li > span > i {
 }
 
 .filter-btn:hover{
-    background-color: #eee;
+    background-color: var(--button-hover-bg);
     cursor: pointer;
 }
 
@@ -566,7 +630,8 @@ li > span > i {
     font-size: 17px;
     margin: 8px 0px 6px;
     max-width: 80%;
-    color: rgb(28, 28, 28);
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
 }
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .rating {
@@ -610,9 +675,10 @@ li > span > i {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: rgb(105, 105, 105);
+    color: var(--secondary-text);
     max-width: 60%;
     padding: 0px 0px 4px;
+    transition: color var(--transition-speed);
 }
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .Category .p2 {
@@ -623,9 +689,10 @@ li > span > i {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: rgb(105, 105, 105);
+    color: var(--secondary-text);
     max-width: 30%;
     padding: 0px 0px 4px;
+    transition: color var(--transition-speed);
 }
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .time {
@@ -636,21 +703,23 @@ li > span > i {
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .time p {
     margin: 0px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(var(--card-bg-rgb), 0.8);
     backdrop-filter: blur(4px);
     border-radius: 4px;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    color: rgb(54, 54, 54);
+    color: var(--primary-text);
     padding: 2px 5px 3px;
+    transition: color var(--transition-speed), background-color var(--transition-speed);
 }
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .line {
     height: 1px;
-    background-color: rgb(232, 232, 232);
+    background-color: var(--border-color);
     margin-bottom: 5px;
     margin-top: 5px;
+    transition: background-color var(--transition-speed);
 }
 
 .Food-menu .Food-item .Food-item-margin .Food-item-link .covid {
@@ -674,7 +743,7 @@ li > span > i {
 .Food-menu .Food-item .Food-item-margin .Food-item-link .covid p {
     margin: 0px 0px 0px 11px;
     text-align: left;
-    color: rgb(130, 130, 130);
+    color: var(--secondary-text);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -683,6 +752,7 @@ li > span > i {
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
+    transition: color var(--transition-speed);
 }
 
 .Food-menu .Food-card {
@@ -818,26 +888,31 @@ li > span > i {
     font-weight: 700;
     margin-bottom: 8px;
     text-transform: capitalize;
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
   }
 
   .menu p {
     font-size: .93rem;
-    color: #7e808c;
+    color: var(--secondary-text);
     height: calc(.93rem + 6px);
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 4px;
     white-space: nowrap;
+    transition: color var(--transition-speed);
   }
 
   .rating{
-    border: 1px solid #e9e9eb;
-    box-shadow: 0 1px 5px #f9f9f9;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 5px var(--card-bg);
     border-radius: 6px;
     text-align: center;
     padding: 8px;
     max-width: 100px;
     float: right;
+    background-color: var(--card-bg);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
   }
 
   .rating-top {
@@ -847,15 +922,16 @@ li > span > i {
     font-weight: 700;
     margin-bottom: 8px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e9e9eb;
+    border-bottom: 1px solid var(--border-color);
     justify-content: center;
   }
 
   .rating span {
     font-size: 11px;
-    color: #8b8d97;
+    color: var(--secondary-text);
     font-weight: 600;
     letter-spacing: -0.7px;
+    transition: color var(--transition-speed);
   }
 
   .menu-price{
@@ -866,23 +942,25 @@ li > span > i {
 
   .menu-info{
     font-size: 14px;
-    color: #7e808c;
+    color: var(--secondary-text);
     display: flex;
     gap: 5px;
     margin-bottom: 15px;
+    transition: color var(--transition-speed);
   }
 
   .menu-price-constainer{
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #3e4152;
+    color: var(--primary-text);
     font-size: 15px;
     font-weight: 700;
+    transition: color var(--transition-speed);
   }
 
   .menu-border{
-    border-top: 8px solid #f1f1f6;
+    border-top: 8px solid var(--card-bg);
   }
 
   .category-conatiner{
@@ -897,9 +975,10 @@ li > span > i {
   }
 
   .category-header h3 {
-    color: #222;
+    color: var(--primary-text);
     font-size: 18px;
     font-weight: 700;
+    transition: color var(--transition-speed);
   }
 
   .category-item .item-container:last-child{
@@ -908,7 +987,7 @@ li > span > i {
 
   .item-container{
     padding: 25px 0;
-    border-bottom: .5px solid #d3d3d3;
+    border-bottom: .5px solid var(--border-color);
     display: flex;
     justify-content: space-between;
   }
@@ -932,23 +1011,26 @@ li > span > i {
     margin-right: 4px;
     font-size: 17px;
     font-weight: 500;
-    color: #3e4152;
+    color: var(--primary-text);
     word-break: break-word;
+    transition: color var(--transition-speed);
   }
 
   .item-info h4 {
     font-size: 14px;
     font-weight: 400;
-    color: #3e4152;
+    color: var(--secondary-text);
+    transition: color var(--transition-speed);
   }
 
   .item-info p {
     margin-top: 14px;
     line-height: 1.3;
-    color: rgba(40,44,63,.45);
+    color: var(--secondary-text);
     width: 95%;
     letter-spacing: -.3px;
     font-size: 14px;
+    transition: color var(--transition-speed);
   }
 
   .item-img {
@@ -968,22 +1050,23 @@ li > span > i {
     position: absolute;
     left: 11%;
     padding: 7px 32px;
-    box-shadow: 0 3px 8px #e9e9eb;
+    box-shadow: 0 3px 8px var(--card-bg);
     border-radius: 4px;
     color: #60b246;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border: #60b246;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
   }
 
   .menu-counter{
     position: absolute;
     bottom: 5%;
     left: 11%;
-    box-shadow: 0 3px 8px #e9e9eb;
-    background-color: #fff;
-
+    box-shadow: 0 3px 8px var(--card-bg);
+    background-color: var(--card-bg);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
   }
 
   /*MENU*/
@@ -992,10 +1075,11 @@ li > span > i {
 
 footer {
     width: 100%;
-    background: rgb(248, 248, 248);
+    background: var(--footer-bg);
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
+    transition: background-color var(--transition-speed);
 }
 
 .sec1 {
@@ -1020,8 +1104,10 @@ footer {
     align-items: center;
     justify-content: space-evenly;
     padding: 3px 3px;
-    border: 1px solid rgb(181, 181, 181);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background-color: var(--card-bg);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector .India img {
@@ -1031,13 +1117,15 @@ footer {
 
 .sec1 .sec2 .selector .India p {
     font-size: 18px;
-    color: #1c1c1c;
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector .India .fa-chevron-down {
-    color: #000000;
+    color: var(--primary-text);
     width: 15px;
     height: 15px;
+    transition: color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector .English {
@@ -1047,23 +1135,27 @@ footer {
     align-items: center;
     justify-content: space-evenly;
     padding: 5px;
-    border: 1px solid rgb(181, 181, 181);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background-color: var(--card-bg);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector .English .fa-globe {
-    color: #000000;
+    color: var(--primary-text);
     height: 18px;
     width: 18px;
     font-size: 17px;
+    transition: color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector .English p {
     font-size: 18px;
     line-height: 2px;
-    color: rgb(28, 28, 28);
+    color: var(--primary-text);
     margin: 0px 5px 0 8px;
     font-weight: 400;
+    transition: color var(--transition-speed);
 }
 
 .sec1 .sec2 .selector {
@@ -1096,6 +1188,8 @@ footer {
     letter-spacing: 2px;
     font-weight: 500;
     margin: 0px 0px 12px;
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
 }
 
 .main-footer  a {
@@ -1105,8 +1199,9 @@ footer {
 .main-footer  a p {
     font-size: 14px;
     line-height: 21px;
-    color: rgb(105, 105, 105);
+    color: var(--footer-secondary-text);
     margin: 5px 0px;
+    transition: color var(--transition-speed);
 }
 
 .main-footer .foot3-1 {
@@ -1126,6 +1221,8 @@ footer {
     text-decoration: none;
     margin-right: 8px;
     font-size: 20px;
+    color: var(--icon-color);
+    transition: color var(--transition-speed);
 }
 
 .main-footer .foot5 .icons {
@@ -1161,14 +1258,16 @@ footer {
     border-width: 1px 0 0;
     margin-top: 50px;
     border-top-style: solid;
-    border-top-color: rgb(207, 207, 207);
+    border-top-color: var(--footer-border);
+    transition: border-color var(--transition-speed);
 }
 
 .copyright {
     font-size: 13px;
-    color: rgb(79, 79, 79);
+    color: var(--footer-secondary-text);
     line-height: 17px;
     margin-top: 23px;
+    transition: color var(--transition-speed);
 }
   /*FOOTER*/
 
@@ -1256,13 +1355,16 @@ footer {
 /*ABOUT*/
 
 /*FAQ*/
-.FAQ-container{
-  border: 1px solid gray;
+.FAQ-container {
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   width: calc(100% - 40px);
   height: fit-content;
   margin: 10px 0px;
   padding: 10px;
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  transition: background-color var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
 }
 
 .FAQ-container .category-header {
@@ -1270,12 +1372,18 @@ footer {
   padding-bottom: 5px;
 }
 
+.FAQ-container .category-header h3 {
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
+}
+
 .FAQ-des {
-  border-top: 1px solid #0000002a;
+  border-top: 1px solid var(--border-color);
   width: 100%;
   transition: all .6s cubic-bezier(.215, .61, .355, 1);
   overflow: hidden;
   padding: 10px 0;
+  color: var(--secondary-text);
 }
 /*FAQ*/
 
@@ -1284,20 +1392,24 @@ footer {
   text-align: center;
   margin: 25px;
   font-size: 30px;
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
 }
 
 .cart-container {
   margin: 20px auto;
   max-width: 450px;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   padding: 15px;
   border-radius: 10px;
+  background-color: var(--card-bg);
+  transition: border-color var(--transition-speed), background-color var(--transition-speed);
 }
 
 .cart-header{
   display: flex;
     justify-content: space-between;
-    border-bottom: .5px solid #d3d3d3;
+    border-bottom: .5px solid var(--border-color);
     margin-bottom: 5px;
     padding-bottom: 15px;
     align-items: center;
@@ -1311,7 +1423,7 @@ footer {
 }
 
 .cart-items {
-  border-bottom: .5px solid #d3d3d3;
+  border-bottom: .5px solid var(--border-color);
     margin-bottom: 15px;
     
 }
@@ -1319,24 +1431,30 @@ footer {
 .heading-bill {
   font-weight: 700;
   font-size: 14px;
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
 }
 
 .cart-bill .bill-item {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  color: var(--secondary-text);
+  transition: color var(--transition-speed);
 }
 
 .bill-total{
-  border-top: 2px solid #000;
+  border-top: 2px solid var(--primary-text);
     margin-top: 10px;
     padding-top: 5px;
     font-weight: 700;
     font-size: 16px !important;
+    color: var(--primary-text) !important;
+    transition: color var(--transition-speed), border-color var(--transition-speed);
 }
 
 .cart-btns{
-  border-bottom: .5px solid #d3d3d3;
+  border-bottom: .5px solid var(--border-color);
   margin-bottom: 10px;
   padding-bottom: 15px;
   display: flex;
@@ -1426,12 +1544,14 @@ footer {
   margin-top: 24px;
     font-size: 20px;
     font-weight: 600;
-    color: #535665;
+    color: var(--primary-text);
+    transition: color var(--transition-speed);
  }
 
  .empty-cart p {
   margin-top: 8px;
-  color: #7e808c;
+  color: var(--secondary-text);
+  transition: color var(--transition-speed);
  }
 
  .empty-cart a {
@@ -1484,6 +1604,8 @@ footer {
 
 .item-name p {
   max-width: 91%;
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
 }
 
 .item-price{
@@ -1504,8 +1626,9 @@ footer {
   line-height: 30px;
   height: 31px;
   user-select: none;
-  box-shadow: 0 3px 8px #e9e9eb;
+  box-shadow: 0 3px 8px var(--card-shadow);
 border-radius: 4px;
+  background-color: var(--card-bg);
  }
 
  .item-price h4 {
@@ -1518,7 +1641,7 @@ border-radius: 4px;
   font-size: 150%;
   font-weight: 600;
   padding-bottom: 3px;
-  color: #BEBFC5;
+  color: var(--secondary-text);
   cursor: pointer;
  }
 
@@ -1697,7 +1820,7 @@ justify-content: center;
 }
 
 .shimmer-animate {
-  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background: linear-gradient(to right, var(--shimmer-base) 8%, var(--shimmer-highlight) 18%, var(--shimmer-end) 33%);
   background-size: 1000px 100%;
   animation: shimmer 1.5s infinite linear;
 }
@@ -1799,4 +1922,257 @@ justify-content: center;
 
 .retry-button:hover {
   background-color: #d32f2f;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-text);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(226, 55, 68, 0.05);
+  color: var(--accent-color);
+}
+
+.theme-toggle-item {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.theme-label {
+  margin-left: 5px;
+}
+
+/* Card and Food Item Styles */
+.Food-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Input Fields */
+input, 
+.search {
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+/* Buttons */
+.filter-btn {
+  background-color: var(--button-bg);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+.filter-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--primary-text);
+  transition: background-color var(--transition-speed);
+}
+
+/* Shimmer Effects for Dark Mode */
+.shimmer-animate {
+  background: linear-gradient(to right, var(--shimmer-base) 8%, var(--shimmer-highlight) 18%, var(--shimmer-end) 33%);
+}
+
+/* Restaurant Menu Styles */
+.menu-conatiner,
+.category-conatiner,
+.item-container {
+  background-color: var(--card-bg);
+  transition: background-color var(--transition-speed);
+}
+
+/* Apply to other specific elements as needed */
+.acordian,
+.FAQ-container,
+.cart {
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.category-header {
+  background-color: var(--secondary-bg);
+}
+
+/* Make sure tooltips and notifications are readable in dark mode */
+.Toastify__toast {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+/* Navigation Icons - standardize colors */
+.nav-icon,
+.location-icon,
+.fa-wifi {
+  color: var(--icon-color);
+  transition: color var(--transition-speed);
+}
+
+.nav-link:hover .nav-icon,
+.login-btn:hover .nav-icon,
+.location-btn:hover .location-icon {
+  color: var(--accent-color);
+}
+
+/* Override for specific icons */
+.fa-wifi.online {
+  color: #4CAF50;
+}
+
+.fa-wifi.offline {
+  color: #F44336;
+}
+
+.location-icon {
+  color: var(--accent-color);
+}
+
+/* Footer Styles for Dark Mode */
+footer {
+  width: 100%;
+  background: var(--footer-bg);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed);
+}
+
+.main-footer h6 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin: 0px 0px 12px;
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
+}
+
+.main-footer a p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--footer-secondary-text);
+  margin: 5px 0px;
+  transition: color var(--transition-speed);
+}
+
+.main-footer a:hover p {
+  color: var(--accent-color);
+}
+
+.copyright {
+  font-size: 13px;
+  color: var(--footer-secondary-text);
+  line-height: 17px;
+  margin-top: 23px;
+  transition: color var(--transition-speed);
+}
+
+.h-line {
+  border-width: 1px 0 0;
+  margin-top: 50px;
+  border-top-style: solid;
+  border-top-color: var(--footer-border);
+  transition: border-color var(--transition-speed);
+}
+
+/* Footer selectors */
+.sec1 .sec2 .selector .India,
+.sec1 .sec2 .selector .English {
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.sec1 .sec2 .selector .India p,
+.sec1 .sec2 .selector .English p {
+  color: var(--primary-text);
+  transition: color var(--transition-speed);
+}
+
+.sec1 .sec2 .selector .India .fa-chevron-down,
+.sec1 .sec2 .selector .English .fa-globe {
+  color: var(--icon-color);
+  transition: color var(--transition-speed);
+}
+
+/* Fix menu and icon styles */
+.nav-list.show {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.location-btn {
+  color: var(--secondary-text);
+}
+
+.city-display {
+  color: var(--secondary-text);
+}
+
+/* Consistent icons */
+.logo-container div button {
+  background-color: transparent;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--primary-text);
+  transition: color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.logo-container div:hover button {
+  color: var(--accent-color);
+}
+
+/* Fix for the cart items, bills, and other dark mode components */
+.cart-container {
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.cart-header, 
+.cart-items,
+.cart-btns {
+  border-color: var(--border-color);
+}
+
+.bill-total {
+  border-top: 2px solid var(--primary-text);
+}
+
+.inc-dec-count {
+  box-shadow: 0 3px 8px var(--card-shadow);
+  background-color: var(--card-bg);
+  color: #60b246;
+}
+
+.minus-counter {
+  color: var(--secondary-text);
+}
+
+/* Social media icons in footer */
+.main-footer .foot5 .icons a {
+  color: var(--icon-color);
+  transition: color var(--transition-speed);
+}
+
+.main-footer .foot5 .icons a:hover {
+  color: var(--accent-color);
 }
