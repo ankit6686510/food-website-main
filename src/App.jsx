@@ -14,6 +14,8 @@ import Cart from "./components/Cart";
 import { Toaster } from "react-hot-toast";
 import LocationContext from "./utils/LocationContext";
 import CityContext from "./utils/CityContext";
+import ThemeContext from "./utils/ThemeContext";
+import useTheme from "./utils/useTheme";
 import ErrorBoundary from "./components/ErrorBoundary";
 import SEO from "./components/SEO";
 import Shimmer from "./components/Shimmer";
@@ -29,6 +31,9 @@ const AppLayout = () => {
   });
 
   const [city, setCity] = useState("Delhi");
+
+  // Theme Context -----------------------------
+  const { darkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const successCallback = (position) => {
@@ -50,32 +55,34 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
       <ErrorBoundary>
-        <div className="app">
-          <SEO 
-            title="Zaika - Food Delivery Platform"
-            description="Order food online from restaurants and get it delivered. Serving in major cities across India."
-            keywords="food delivery, online food, restaurant, zaika"
-          />
-          <LocationContext.Provider
-            value={{ location: location, setLocation: setLocation }}
-          >
-            <CityContext.Provider value={{ city: city, setCity: setCity }}>
-              <Toaster
-                position="top-center"
-                reverseOrder={false}
-                gutter={30}
-                containerClassName="notification-container"
-                toastOptions={{
-                  className: "notification-toast",
-                  duration: 1500,
-                }}
-              />
-              <Header />
-              <Outlet />
-              <Footer />
-            </CityContext.Provider>
-          </LocationContext.Provider>
-        </div>
+        <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+          <div className={`app ${darkMode ? 'dark-theme' : 'light-theme'}`}>
+            <SEO 
+              title="Zaika - Food Delivery Platform"
+              description="Order food online from restaurants and get it delivered. Serving in major cities across India."
+              keywords="food delivery, online food, restaurant, zaika"
+            />
+            <LocationContext.Provider
+              value={{ location: location, setLocation: setLocation }}
+            >
+              <CityContext.Provider value={{ city: city, setCity: setCity }}>
+                <Toaster
+                  position="top-center"
+                  reverseOrder={false}
+                  gutter={30}
+                  containerClassName="notification-container"
+                  toastOptions={{
+                    className: "notification-toast",
+                    duration: 1500,
+                  }}
+                />
+                <Header />
+                <Outlet />
+                <Footer />
+              </CityContext.Provider>
+            </LocationContext.Provider>
+          </div>
+        </ThemeContext.Provider>
       </ErrorBoundary>
     </Provider>
   );
