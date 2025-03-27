@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import LocationContext from "../utils/LocationContext";
 import CityContext from "../utils/CityContext";
+import ThemeContext from "../utils/ThemeContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -15,6 +16,7 @@ const Header = () => {
   const [nearMe, setNearMe] = useState(false);
   const { setLocation } = useContext(LocationContext);
   const { city } = useContext(CityContext);
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
   const location = useLocation();
 
   const cartItems = useSelector((store) => store.cart.items);
@@ -71,6 +73,12 @@ const Header = () => {
   // Check if route is active
   const isActiveRoute = (path) => {
     return location.pathname === path;
+  };
+  
+  // Handle theme toggle with notification
+  const handleThemeToggle = () => {
+    toggleTheme();
+    toast.success(`Switched to ${darkMode ? 'Light' : 'Dark'} Mode`);
   };
 
   return (
@@ -141,6 +149,18 @@ const Header = () => {
                 </div>
                 <span>Cart</span>
               </Link>
+            </li>
+            
+            <li className="theme-toggle-item">
+              <button 
+                className="theme-toggle-btn" 
+                onClick={handleThemeToggle}
+                title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                <i className={`fa-solid ${darkMode ? "fa-sun" : "fa-moon"} nav-icon`}></i>
+                <span className="theme-label">{darkMode ? "Light" : "Dark"}</span>
+              </button>
             </li>
 
             <li className="online-status" title={onlineStatus ? "You are online" : "You are offline"}>
